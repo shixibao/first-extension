@@ -1,0 +1,89 @@
+{
+	"name": "firstextension",
+	"displayName": "firstextension",
+	"description": "xxx",
+	"publisher": "sxb-vscode",
+	"version": "0.0.2",
+	"engines": {
+		"vscode": "^1.51.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:myExt.helloZhuFeng",
+		"onCommand:firstExt.insertLog",
+		"onCommand:firstExt.deleteAllLog",
+		"onCommand:firstExt.removeComments"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "myExt.helloZhuFeng",
+				"title": "Hello World11"
+			},
+			{
+				"command": "firstExt.insertLog",
+				"title": "Insert Log Statement"
+			},
+			{
+				"command": "firstExt.deleteAllLog",
+				"title": "Delete All Log"
+			},
+			{
+				"command": "firstExt.removeComments",
+				"title": "Remove Comments"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "myExt.helloZhuFeng",
+				"key": "ctrl+w"
+			},
+			{
+				"command": "firstExt.insertLog",
+				"key": "shift+ctrl+l",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "firstExt.deleteAllLog",
+				"key": "shift+ctrl+q"
+			},
+			{
+				"command": "firstExt.removeComments",
+				"key": "shift+ctrl+k"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorTextFocus",
+					"command": "firstExt.insertLog",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.51.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.15.0",
+		"@typescript-eslint/eslint-plugin": "^4.9.0",
+		"@typescript-eslint/parser": "^4.9.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.1.2",
+		"vscode-test": "^1.4.1"
+	}
+}
